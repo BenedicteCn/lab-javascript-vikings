@@ -47,7 +47,7 @@ class Saxon extends Soldier {
 
   receiveDamage(damage){
     this.health -= damage
-    if (this.health === 0 ){
+    if (this.health === 0 || this.health < 0){
       return `A Saxon has died in combat`
     }
     else if (this.health >= 1 ){
@@ -106,7 +106,7 @@ class War {
     vikingRandom.receiveDamage(damage)
 
     if (vikingRandom.health >= 1) {
-      return "`receiveDamage()` of a `Saxon`** with the `strength` of a `Viking`"}
+      return `${vikingRandom.name} has received ${saxonRandom.strength} points of damage`}
     else if (vikingRandom.health === 0 || vikingRandom.health < 0 ){
       return this.vikingArmy.splice(vikingRandom);
 
@@ -115,8 +115,6 @@ class War {
   };
 
   showStatus(){
-
-
 
     if (this.saxonArmy.length === 0){
       return "Vikings have won the war of the century!"
